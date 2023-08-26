@@ -1,0 +1,1 @@
+Coding each commit from Tom Stuart's monad tutorial to learn Monad in Ruby.
