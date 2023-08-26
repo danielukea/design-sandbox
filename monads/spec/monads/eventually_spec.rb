@@ -26,6 +26,10 @@ module Monads
 
                     expect(@result).to eq final_result
                 end
+
+                it "raises an error if the block does not return an eventually" do
+                    expect { Eventually.new { |success| success.call }.and_then { double }.run }.to raise_error(TypeError)
+                end
             end
 
             context "When the Eventually succeeds asynchronously" do
@@ -41,6 +45,10 @@ module Monads
                     @job.call
 
                     expect(@result).to eq final_result
+                end
+
+                it "raises an error if the block does not return an eventually" do
+                    expect { Eventually.new { |success| success.call }.and_then { double }.run }.to raise_error(TypeError)
                 end
             end
         end

@@ -1,21 +1,12 @@
 module Monads
-    class Optional
-        attr_reader :value
-        def initialize(value)
-          @value = value
-        end
-
-        def method_missing(*args, &block)
-            and_then do |value|
-              Optional.new(value.public_send(*args, &block))
-            end
-        end
-
+    Optional = Struct.new(:value) do
+        include Monad
         def and_then(&block)
-          if @value.nil?
+          block = ensure_monadic_result(&block)
+          if value.nil?
             self
           else
-            block.call(@value)
+            block.call(value)
           end
         end
     end

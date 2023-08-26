@@ -3,6 +3,11 @@ source "https://rubygems.org"
 
 gem "rspec", "~> 3.12", :group => :test
 
-gem "standardrb", "~> 1.0", :group => :development
+group :development, :test do
+  gem "standardrb", "~> 1.0", :group => :development
+  gem "pry-byebug", "~> 3.10", :group => :development
+end
+
 
 gem "zeitwerk", "~> 2.6"
+
