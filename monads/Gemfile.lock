@@ -61,6 +61,7 @@ GEM
     standardrb (1.0.1)
       standard
     unicode-display_width (2.4.2)
+    zeitwerk (2.6.11)
 
 PLATFORMS
   arm64-darwin-22
@@ -68,6 +69,7 @@ PLATFORMS
 DEPENDENCIES
   rspec (~> 3.12)
   standardrb (~> 1.0)
+  zeitwerk (~> 2.6)
 
 BUNDLED WITH
    2.4.18
